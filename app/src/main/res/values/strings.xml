@@ -27,4 +27,5 @@
    <string name="etContrasenia">Ingresa tu contraseña</string>
    <string name="btnIngresarUsuario">Ingresar</string>
    <string name="btnCerrar">Cerrar</string>
+   <string name="UsuariosDefault">Usuarios Default: JORGE - LUIS</string>
 </resources>

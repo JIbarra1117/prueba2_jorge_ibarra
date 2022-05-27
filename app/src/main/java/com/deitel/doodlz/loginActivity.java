@@ -10,9 +10,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class loginActivity extends AppCompatActivity {
-    //clyaldas@uta.edu.ec
-    //Primer usuario: CLAY contrasenia: CLAY
-    //Segundo usuario: FERNANDO contrasenia: FERNANDO
+    //Compartir con clyaldas@uta.edu.ec
+    //Primer usuario: JORGE contrasenia: JORGE
+    //Segundo usuario: LUIS contrasenia: LUIS
     private EditText etNomUsuario;
     private EditText etContrasenia;
     @Override
@@ -31,17 +31,22 @@ public class loginActivity extends AppCompatActivity {
         if (email.equals("") && password.equals("")) {
             Toast.makeText(this, "CAMPOS VACIOS", Toast.LENGTH_SHORT).show();
         } else {
-            //String consulta = "SELECT * FROM Usuarios WHERE USUARIO = '" + email + "' and CONTRASEÑA = '" + password +"'";
-            // Cursor cursor = sql.rawQuery(consulta, null);
-            String usuario = "", contra = "", nombre = "", apellido = "";
-            if (email.equals("CLAY") && password.equals("CLAY")) {
+            String nombre = "";
+            if (email.equals("JORGE") && password.equals("JORGE")) {
                 Intent intent = new Intent(this, MainActivity.class);
                 intent.putExtra("nombre", nombre);
-                intent.putExtra("apellido", apellido);
                 startActivity(intent);
-                Toast.makeText(this, "Login correcto[PRIMER USUARIO]", Toast.LENGTH_SHORT).show();
-            } else {
+                Toast.makeText(this, "Login correcto[PRIMER USUARIO 1]", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                if(email.equals("LUIS") && password.equals("IBARRA")){
+                    Intent intent = new Intent(this, MainActivity.class);
+                    intent.putExtra("nombre", nombre);
+                    startActivity(intent);
+                    Toast.makeText(this, "Login correcto [PRIMER USUARIO 2]", Toast.LENGTH_SHORT).show();
+                }else{
                 Toast.makeText(this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }

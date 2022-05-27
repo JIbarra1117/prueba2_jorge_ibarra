@@ -43,11 +43,11 @@ public class DoodleView extends View {
         paintScreen = new Paint(); // used to display bitmap onto screen
 
         // set the initial display settings for the painted line
-        paintLine = new Paint();
-        paintLine.setAntiAlias(true); // smooth edges of drawn line
-        paintLine.setColor(Color.BLACK); // default color is black
-        paintLine.setStyle(Paint.Style.STROKE); // solid line
-        paintLine.setStrokeCap(Paint.Cap.ROUND); // rounded line ends
+        this.paintLine = new Paint();
+        this.paintLine.setAntiAlias(true); // smooth edges of drawn line
+        this.paintLine.setColor(Color.BLACK); // default color is black
+        this.paintLine.setStyle(Paint.Style.STROKE); // solid line
+        this.paintLine.setStrokeCap(Paint.Cap.ROUND); // rounded line ends
 
         // set the initial display settings for the background color
         drawingBackgroundColor = Color.WHITE; // default color is white
@@ -72,12 +72,12 @@ public class DoodleView extends View {
 
     // set the painted line's color
     public void setDrawingColor(int color) {
-        paintLine.setColor(color);
+        this.paintLine.setColor(color);
     }
 
     // return the painted line's color
     public int getDrawingColor() {
-        return paintLine.getColor();
+        return this.paintLine.getColor();
     }
 
     public int getDrawingBackgroundColor() {
@@ -107,7 +107,7 @@ public class DoodleView extends View {
 
         // for each path currently being drawn
         for (Integer key : pathMap.keySet())
-            canvas.drawPath(pathMap.get(key), paintLine); // draw line
+            canvas.drawPath(pathMap.get(key), this.paintLine); // draw line
     }
 
     // handle touch event
@@ -163,7 +163,7 @@ public class DoodleView extends View {
         float pressure = event.getPressure();  //ranges from 0.0 to 1.0
         int widthMultiplier = (int) (pressure * 10) ; // convert a number from 0.0 to 1.0 to a number from 0 to 10
         int updatedLineWidth = lineWidth + widthMultiplier;
-        paintLine.setStrokeWidth(updatedLineWidth);
+        this.paintLine.setStrokeWidth(updatedLineWidth);
 
 //        System.out.println(String.format("Touch Moved; pressure: %.4f; lineWidth: %d; updatedLineWidth: %d", pressure, lineWidth, updatedLineWidth));
 
@@ -206,7 +206,7 @@ public class DoodleView extends View {
     // called when the user finishes a touch
     private void touchEnded(int lineID) {
         Path path = pathMap.get(lineID); // get the corresponding Path
-        bitmapCanvas.drawPath(path, paintLine); // draw to bitmapCanvas
+        bitmapCanvas.drawPath(path, this.paintLine); // draw to bitmapCanvas
         path.reset(); // reset the Path
     }
 
